@@ -1,3 +1,5 @@
+{- Copyright Pranesh Srinivasan 2009 - 
+ - Released under the GNU GPL 3 license -}
 module Main where
 import System.Environment
 import System.Directory
