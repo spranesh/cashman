@@ -1,7 +1,8 @@
-module Cashman where
+module Main where
 import System.Environment
 import System.Directory
 import System.Time
+import System.FilePath
 
 {- The log for each friend is your asset with him. Money lent to him is 
  - a plus. Money borrowed from him is a minus -}
@@ -34,12 +35,15 @@ programUsage = unlines $ [ programName, "\n"
 prefixDir :: IO FilePath
 prefixDir = getUserDocumentsDirectory >>= (\x -> return (x ++ "/." ++ programName ++ "/"))
 {-======================================================================-}
+-- Utility Functions
+-- =================
 
 makeFileName :: String -> IO FilePath
 makeFileName name = prefixDir >>= (\x -> return (x ++ name ++ extension))
 
 getTime :: IO String
-getTime = getClockTime >>= (return . show)
+getTime = do [d, m, date, time, zone, year] <- getClockTime >>= (return . words . show)
+             return (unwords [d, m, date, year])
 
 -- Read File After Check
 rfac :: String -> IO String
@@ -51,8 +55,8 @@ rfac name = do
 -- Write file after check on the list of string as input
 wfac :: String -> String -> IO ()
 wfac name str = do fname <- makeFileName name 
+                   putStrLn (last . lines $  str)
                    writeFile fname str
-                   putStrLn $ tail str
 
 
 -- a small function for printing the money
@@ -90,6 +94,7 @@ modifyAccount amount log time file = let lfile = lines file
                                                  , unlines (tail lfile)
                                                  , time ++ " :: " ++ (past log)]
 
+{-======================================================================-}
 
 parseArgs :: [String] -> IO ()
 parseArgs [] = putStrLn programUsage
