@@ -62,7 +62,7 @@ rfac name = do
 -- Write file after check on the list of string as input
 wfac :: String -> String -> IO ()
 wfac name str = do fname <- makeFileName name 
-                   putStrLn (last . lines $  str)
+                   putStrLn ((last . lines $  str) ++ name)
                    writeFile fname str
 
 -- a small function for printing the money
@@ -109,7 +109,7 @@ manageMoney :: String -> String -> String -> String -> IO ()
 manageMoney name amount comment action = do  
                 s <- rfac name
                 time <- getTime
-                wfac name $ modifyAccount amount "take" time s comment
+                wfac name $ modifyAccount amount action time s comment
 
 addUser :: String -> IO ()
 addUser name  = do fname  <- makeFileName name
