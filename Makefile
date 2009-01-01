@@ -15,4 +15,6 @@ install: ${PROG}
 clean: 
 	rm -rf ${PROG}.hi ${PROG}.o ${PROG}.hi ${PROG}
 
+tar:
+	git archive --format=tar --prefix=${PROG}/ HEAD | gzip > ${PROG}.tar.gz
 
