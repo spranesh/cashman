@@ -57,7 +57,14 @@ rfac :: String -> IO String
 rfac name = do
               fname <- makeFileName name
               e <- doesFileExist fname
-              if e then readFile fname else error "User Does not exist. Please use help."
+              if e then readFile fname 
+                  else do putStrLn "User Does Not Exist. The users in the system are : "
+                          getUsers >>= putStrLn . unlines
+                          putStrLn "Maybe you want to add him (yes/no)?"
+                          ans <- getLine
+                          if ans == "yes" ||  ans == "y" 
+                              then addUser name >> readFile fname
+                                else error "User not created."
 
 -- Write file after check on the list of string as input
 wfac :: String -> String -> IO ()
