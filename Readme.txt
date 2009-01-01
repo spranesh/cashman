@@ -1,4 +1,4 @@
-Cash Manager 0.1
+Cash Manager 0.2
 ================
 
 Manage who owes who.
@@ -7,9 +7,8 @@ Author : Pranesh Srinivasan
 License : GPL
 
 Dependencies : A good haskell compiler. I have tested this with the Glasgow
-Haskell Compiler (GHC) on a GNU/Linux Machine (Ubuntu). It will work on
-windows with some minor changes (next version).
-
+Haskell Compiler (GHC) on a GNU/Linux Machine (Ubuntu). It should also
+work on Windows, using ghc
 
 Brief Installation Steps
 ========================
@@ -42,11 +41,17 @@ Right now, the program is first person centric.
     add   friend        -> add a friend with the name friend
     history friend      -> display entire log history of friend
     list                -> list all friends
+    report              -> make a report
     In all the above, amount is integral
 
+    Comments can be added when using give or take, as an optional last option.
+
 Examples : 
-      cashman ++ " add smith    -> adds smith as a friend 
-      cashman ++ " take smith 5 -> borrow 5 from Smith
+      cashman add smith    -> adds smith as a friend 
+      cashman take smith 5 -> borrow 5 from Smith
+      cashman give smith 100 "lunch" -> lend Smith a 100, with an annotation saying "lunch"
+                                        to help memory
+      cashman report
 
 Tip
 ===
@@ -58,8 +63,7 @@ across a time period.
 
 Implementation Details
 ======================
-The data is stored in ~/.cashman with each friend having a file,
-friend.frnd Money given to the friend is viewed as personal credit (+ve
-sign), and money taken from the friend is viewed as personal debit (-ve
-sign)
+The data is stored in ~/.cashman (on Linux Machines) with each friend having a
+file, friend.frnd Money given to the friend is viewed as personal credit (+ve
+sign), and money taken from the friend is viewed as personal debit (-ve sign)
 
