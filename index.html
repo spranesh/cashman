@@ -1,0 +1,169 @@
+<html> <head>
+
+<title>Cash Manager </title> 
+<style type="text/css">
+<!--
+
+li a{
+color: #989898; 
+}
+li a:visited {
+color: #989898;
+}
+
+li a:hover {
+color: #000000;
+}
+
+body{
+background: #FFFFFF;
+color: black;
+       font-family: sans-serif;
+       margin-left:0.6em;
+width:800px;
+}
+
+ul li{
+	list-style:disc;
+color: black;
+       font-size:0.9em;
+}
+
+ul ul li{
+	list-style:disc;
+color:black;
+}
+
+.heading{
+color: #1a6ed5;
+       font-size:0.95em;
+}
+
+.author{
+color: #172380;
+margin:1em;
+       margin-left:0em;
+}
+
+.enumerate{
+color: #0F386B;
+display:inline;
+}
+.version{
+color: black;
+display:inline;
+margin:0.5em;
+       margin-left:0em;
+}
+
+.date{
+color: #228a73;
+       font-size:0.9em;
+}
+
+p, ol{
+	font-size:0.9em;
+}
+
+h2, h4{
+color: #3b61c3;
+}
+
+pre{
+            background: #edf3ff;
+	    margin-top:0.7em;
+	    margin-bottom:0.7em;
+	    padding-top: 1em;
+	    padding-bottom: 1em;
+}
+
+em{
+color: #1a8a4f;
+       font-style:normal;
+       font-weight:bolder;
+}
+
+.footer{
+	margin-top:1em;
+	padding-top:0.5em;
+	border-top: 1px solid #131b6f;
+	font-size:0.85em;
+}
+</style>
+
+</head>
+
+
+<body> 
+<h2> Cash Manager </h2>
+
+<h4>Manage who owes who.</h4>
+
+<div class ="author">Pranesh Srinivasan</div>
+<div class = "date">License : GPL</div> <br />
+
+<div class = "heading">Description</div>
+<p>
+A program that allows you to keep track of whom you owe, and who owes you how
+much - in two hundred haskell lines!</p>
+
+<p> <em>Download</em> it <a href="/~spranesh/projects/cashman/cashman.tar.gz">here</a>.  </p>
+
+
+<div class = "heading">Dependencies</div>
+<p>
+A good haskell compiler. I have tested this with the Glasgow
+Haskell Compiler (GHC) on a GNU/Linux Machine (Ubuntu). It should also
+work on Windows, using ghc.
+</p>
+
+<div class="heading">Usage</div>
+<p>
+The program allows the user to have buddies, that he declares using <i>cashman
+add friend</i>. The user can then keep track individually of the money he gives
+or takes from someone. 
+</p>
+
+<p>
+Right now, the program is first person centric.
+</p>
+
+Examples : 
+<pre>
+[spranesh@nemesis:~]$ cashman add smith                          (01-01 15:43)
+Thu Jan 1 2009 :: User smith Created
+
+[spranesh@nemesis:~]$ cashman take smith 5                       (01-01 15:44)
+Thu Jan 1 2009 :: took 5  smith
+
+[spranesh@nemesis:~]$ cashman give smith 100 "lunch"             (01-01 15:44)
+Thu Jan 1 2009 :: gave 100  lunch  smith
+
+[spranesh@nemesis:~]$ cashman report                             (01-01 15:44)
+Each number shown is your asset with that person. In other words, a negative
+amount indicates that you owe the person, and a positive that the person owes
+you. 
+
+
+smith                 95
+                --------
+                      95 
+
+
+You need to get Rs. 95 from others
+
+[spranesh@nemesis:~]$ cashman history smith                      (01-01 15:44)
+Thu Jan 1 2009 :: User smith Created
+Thu Jan 1 2009 :: took 5  
+Thu Jan 1 2009 :: gave 100  lunch
+
+[spranesh@nemesis:~]$ 			                         (01-01 15:45)
+</pre>
+
+<p>
+You can view the entire Readme <a href="/~spranesh/projects/cashman/Readme.txt"> here </a>
+</p>
+
+<div class="footer"> Pranesh Srinivasan GPL </div>
+
+</body></html>
