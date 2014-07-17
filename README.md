@@ -48,6 +48,7 @@ Right now, the program is first person centric.
     Comments can be added when using give or take, as an optional last option.
 
 Examples : 
+
       cashman add smith    -> adds smith as a friend 
       cashman take smith 5 -> borrow 5 from Smith
       cashman give smith 100 "lunch" -> lend Smith a 100, with an annotation saying "lunch"
