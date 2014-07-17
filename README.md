@@ -12,16 +12,17 @@ work on Windows, using ghc
 
 Brief Installation Steps
 ========================
-    * Make sure you have a haskell compiler (pref ghc) installed. On
-      Debian/Ubuntu this can be done by 
-        apt-get install ghc
-      
-    * In the directory of the program, change any Makefile variables that
-      you may want to. The most oft changed will be the PREFIX, since it
-      might differ from system to system. For Debian/Ubuntu, this is
-      /usr/bin
 
-    * Simply run make followed by a make install
+* Make sure you have a haskell compiler (pref ghc) installed. On
+  Debian/Ubuntu this can be done by 
+    apt-get install ghc
+  
+* In the directory of the program, change any Makefile variables that
+  you may want to. The most oft changed will be the PREFIX, since it
+  might differ from system to system. For Debian/Ubuntu, this is
+  /usr/bin
+
+* Simply run make followed by a make install
 
 
 Usage
